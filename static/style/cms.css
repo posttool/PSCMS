@@ -1,0 +1,280 @@
+Component 
+{
+	backgroundVisible: false;
+	backgroundColor: #ffffff;
+}
+Label
+{
+	fontStyle: .black_label;
+	decorator.embedded: true;
+}
+Link
+{
+	fontStyle: .black_label;
+	decorator.embedded: true;
+	normalColor: #333333;
+	overColor: #000000;
+	selectedColor: #0099ff;
+}
+
+Input
+{
+	fontStyle: .black_input;
+	decorator.embedded: false;
+	backgroundVisible: true;
+	backgroundColor: #ffffff;
+	backgroundAlpha: 1;
+	backgroundShadowSize: 5;
+	backgroundShadowStrength: .07;
+	height: 27;
+
+}
+
+BigInput
+{
+	fontStyle: .black_input_big;
+	decorator.embedded: false;
+	backgroundVisible: true;
+	backgroundColor: #ffffff;
+	backgroundAlpha: 1;
+	backgroundShadowSize: 7;
+	backgroundShadowStrength: .1;
+	height: 33;
+
+}
+
+SmallInput
+{
+	fontStyle: .black_input_small;
+	decorator.embedded: false;
+	backgroundVisible: true;
+	backgroundColor: #ffffff;
+	backgroundAlpha: 1;
+	backgroundShadowSize: 7;
+	backgroundShadowStrength: .1;
+	height: 20;
+
+}
+
+Button
+{
+	
+	alpha: .8;
+	fontStyle: .black_label;
+	decorator.embedded: true;
+	decorator.labelX: 2;
+	decorator.labelY: 3;
+
+	backgroundVisible: false;
+	backgroundColor: #ffffff;
+	backgroundAlpha: .7;
+	
+
+}
+
+PopUpMenu
+{
+	menu.backgroundColor: #ffffff;
+	menu.backgroundBorderVisible: true;
+	menu.backgroundBorderColor: #ffffff;
+	menu.backgroundBorderAlpha: .5;
+	menu.backgroundShadowSize: 0;
+	height:20;
+}
+
+/* cms app styles */
+Login
+{
+	backgroundVisible: true;
+	backgroundColor: #ffffff;
+	backgroundAlpha: .9;
+	width: 500;
+	height: 300;
+	backgroundShadowSize: 33;
+	backgroundShadowStrength: .3;
+
+	layout.margin.top: 10;
+	layout.margin.bottom: 0;
+	layout.margin.left: 10;
+	layout.margin.right: 10;
+}
+ScrollingContainer
+{
+	decorator.scrollBarBackgroundAlpha: 0;
+	decorator.scrollBarThumbColor: #333333;
+}
+
+/* font styles */
+
+.black_input
+{
+  fontFamily: _sans;
+  fontSize: 18;
+  color: #222222;
+  letterSpacing: 0;
+  leading: 2;
+  kerning: true;
+}
+
+.black_input_small
+{
+  fontFamily: _sans;
+  fontSize: 13;
+  color: #111111;
+  letterSpacing: 0;
+  leading: 2;
+}
+
+.black_input_big
+{
+	fontFamily: _sans;
+	fontSize: 26;
+	color: #444444;
+	letterSpacing: 0;
+	leading: 2;
+	kerning: true;
+}
+
+
+
+
+.black_title
+{
+	fontFamily: univers_55;
+	fontSize: 23;
+	color: #000000;
+	letterSpacing: 0;
+}
+
+.black_big
+{
+	fontFamily: univers_55;
+	fontSize: 17;
+	color: #111111;
+	letterSpacing: 0;
+	leading: 2;
+}
+
+.black_medium
+{
+  fontFamily: univers_55;
+  fontWeight: bold;
+  fontSize: 12;
+  color: #333333;
+  letterSpacing: .5;
+}
+
+
+.black_label
+{
+	fontFamily: univers_55;
+	fontSize: 11;
+	color: #333333;
+	letterSpacing: .5;
+}
+
+.black_small
+{
+	fontFamily: univers_55;
+	fontWeight: bold;
+	fontSize: 8;
+	color: #444444;
+	leading: 3;
+	letterSpacing: 2;
+}
+
+.gray_small
+{
+	fontFamily: univers_55;
+	fontSize: 9;
+	color: #555555;
+	leading: 3;
+	letterSpacing: 1;
+}	
+
+.tiny_white
+{
+	fontFamily: univers_55;
+	fontSize: 7;
+	color: #ffffff;
+	letterSpacing: 2;
+}
+
+.medium_white
+{
+	fontFamily: univers_55;
+	fontSize: 13;
+	color: #ffffff;
+	letterSpacing: 1;
+}
+
+.big_white
+{
+	fontFamily: univers_55;
+	fontSize: 27;
+	color: #ffffff;
+	letterSpacing: 0;
+
+}
+
+.big_blue
+{
+	fontFamily: univers_55;
+	fontSize: 27;
+	color: #0099ff;
+	letterSpacing: 0;
+	
+}
+
+
+.big_grey
+{
+  fontFamily: univers_55;
+  fontSize: 27;
+  color: #777777;
+  letterSpacing: 0;
+}
+	
+p
+{
+	fontFamily: univers_55;
+	fontSize: 12.5;
+	color: #000000;
+	letterSpacing: 0;
+
+}
+
+a
+{
+	color: #444444;
+}
+
+/* postera dialog fonts */
+.small_nav
+{
+	fontFamily: univers_55;
+	fontSize: 11;
+  fontWeight: bold;
+	color: #333333;
+	letterSpacing: 2.7;
+	leading: 2;
+}
+
+.medium_title
+{
+	fontFamily: univers_55;
+	fontSize: 19.45;
+	fontWeight: bold;
+	color: #333333;
+	letterSpacing: .6;
+	leading: 4;
+}
+
+.small_body
+{
+	fontFamily: univers_55;
+	fontSize: 11;
+	color: #333333;
+	letterSpacing: .2;
+	leading: 1;
+}
