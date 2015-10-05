@@ -41,15 +41,15 @@ package com.pagesociety.cms.component.reference
         protected var _upload_progress:Progress;
 
         private var _dirty:Boolean;
-		private var _file_types:Array;
+        private var _file_types:Array;
 
         public function ResourceEditor(parent:Container)
         {
             super(parent);
-			
-			_cprogress = new Container(this);
-			_cimage = new Container(this);
-			_cbuttons = new Container(this);
+            
+            _cprogress = new Container(this);
+            _cimage = new Container(this);
+            _cbuttons = new Container(this);
 
             _upload_progress = get_progress(_cprogress);
             _upload_progress.addEventListener(ComponentEvent.CLICK, cancel_upload);
@@ -57,30 +57,30 @@ package com.pagesociety.cms.component.reference
 
             _add_button = create_add_component(_cbuttons);
             _add_button.addEventListener(ComponentEvent.CLICK, on_click_browse);
-//			_replace_button = create_replace_component(_cbuttons);
-//			_replace_button.addEventListener(ComponentEvent.CLICK, on_click_replace);
+//          _replace_button = create_replace_component(_cbuttons);
+//          _replace_button.addEventListener(ComponentEvent.CLICK, on_click_replace);
             _delete_button = create_delete_component(_cbuttons);
             _delete_button.addEventListener(ComponentEvent.CLICK, on_click_delete);
 
             _uploading = false;
             _cprogress.visible = false;
- 			_cbuttons.visible = true;
+            _cbuttons.visible = true;
             _add_button.visible = true;
             _delete_button.visible = false;
-			//_replace_button.visible = false;
+            //_replace_button.visible = false;
             _cimage.visible = false;
         }
-		
-		
-		public function set moduleProvider(module_provider:ResourceModuleProvider):void
-		{
-			_module_provider = module_provider;
-		}
-		
-		public function set uploadTypes(preferred_file_types:Array):void
-		{
-			_file_types 		= preferred_file_types == null ? MultipartUpload.DEFAULT_TYPES : preferred_file_types;
-		}
+        
+        
+        public function set moduleProvider(module_provider:ResourceModuleProvider):void
+        {
+            _module_provider = module_provider;
+        }
+        
+        public function set uploadTypes(preferred_file_types:Array):void
+        {
+            _file_types         = preferred_file_types == null ? MultipartUpload.DEFAULT_TYPES : preferred_file_types;
+        }
 
 
         protected function create_add_component(p:Container):Component
@@ -121,24 +121,24 @@ package com.pagesociety.cms.component.reference
         {
             _upload_progress.progress = 0;
             _cprogress.visible = false;
- 			_cbuttons.visible = true;
-       		if (_resource_entity == null)
+            _cbuttons.visible = true;
+            if (_resource_entity == null)
             {
-	            _add_button.visible = true;
-	            _delete_button.visible = false;
-				//_replace_button.visible = false;
+                _add_button.visible = true;
+                _delete_button.visible = false;
+                //_replace_button.visible = false;
                 _cimage.visible = false;
             }
             else
             {
-	            _add_button.visible = false;
-	            _delete_button.visible = true;
-				//_replace_button.visible = true;
+                _add_button.visible = false;
+                _delete_button.visible = true;
+                //_replace_button.visible = true;
                 _cimage.visible = true;
-            	if (_resource_preview!=null)
-            		_cimage.removeComponent(_resource_preview);
-	            _resource_preview = new ImageResource(_cimage);
-	            _resource_preview.imageScalingType = ImageDecorator.IMAGE_SCALING_VALUE_FIT;
+                if (_resource_preview!=null)
+                    _cimage.removeComponent(_resource_preview);
+                _resource_preview = new ImageResource(_cimage);
+                _resource_preview.imageScalingType = ImageDecorator.IMAGE_SCALING_VALUE_FIT;
                 _resource_preview.resource = _resource_entity;
                 _resource_preview.addEventListener(ResourceEvent.LOAD_RESOURCE, function(e:*):void { render(); });
             }
@@ -166,28 +166,28 @@ package com.pagesociety.cms.component.reference
 
         override public function render():void
         {
-        	if (_resource_preview!=null)
-	            _delete_button.x = _resource_preview.imageWidth + 5;
-//			_replace_button.x = _delete_button.x-10-_replace_button.width;
+            if (_resource_preview!=null)
+                _delete_button.x = _resource_preview.imageWidth + 5;
+//          _replace_button.x = _delete_button.x-10-_replace_button.width;
             super.render();
         }
 
         private function on_click_browse(e:ComponentEvent):void
         {
-        	init_upload();
+            init_upload();
             _upload.showFileSystemBrowser(_file_types);
         }
 
         private function on_click_replace(e:ComponentEvent):void
         {
-        	init_upload();
+            init_upload();
             _upload.data.resource_id = _resource_entity.id.stringValue;
             _upload.showFileSystemBrowser(_file_types);
         }
         
         private function init_upload():void
         {
-        	_upload = new MultipartUpload(_module_provider);
+            _upload = new MultipartUpload(_module_provider);
             _upload.addEventListener(UploadEvent.UPLOAD_PROGRESS, on_upload_progress);
             _upload.addEventListener(UploadEvent.UPLOAD_CANCELED, on_cancel_upload_ok);
             _upload.addEventListener(UploadEvent.UPLOAD_ERROR, on_upload_err);
@@ -195,7 +195,7 @@ package com.pagesociety.cms.component.reference
 
         private function on_click_delete(e:ComponentEvent):void
         {
-        	ModuleRequest.doModule(_module_provider.DeleteResource(), [_resource_entity.id], on_delete_complete, on_error);
+            ModuleRequest.doModule(_module_provider.DeleteResource(), [_resource_entity.id], on_delete_complete, on_error);
         }
         private function on_delete_complete(e:*):void
         {
@@ -205,18 +205,18 @@ package com.pagesociety.cms.component.reference
         }
         
         private function on_upload_progress(e:UploadEvent):void
-		{
-				
-			var upload:UploadProgressInfo = e.info;
+        {
+                
+            var upload:UploadProgressInfo = e.info;
             _uploading = true;
-				
-			_cbuttons.visible = false;
-			_cimage.visible = false;
+                
+            _cbuttons.visible = false;
+            _cimage.visible = false;
             _cprogress.visible = true;
             
-			_upload_progress.progress = upload.progress/100;
-			
-			if (upload.completionObject != null)
+            _upload_progress.progress = upload.progress/100;
+            
+            if (upload.completionObject != null)
             {
                 value = upload.completionObject as Entity;
                 _uploading = false;
@@ -224,9 +224,9 @@ package com.pagesociety.cms.component.reference
                 dispatchEvent(new ComponentEvent(ComponentEvent.CHANGE_VALUE, this));
             }
             
-			render();
-			
-		}
+            render();
+            
+        }
 
         private function on_error(e:ErrorMessage):void
         {
@@ -246,11 +246,11 @@ package com.pagesociety.cms.component.reference
         }
 
         private function on_upload_err(e:UploadEvent):void
-		{
+        {
             _uploading = false;
             value = null;
-			dispatchComponentEvent(UploadEvent.UPLOAD_ERROR, this, e);
-		}
+            dispatchComponentEvent(UploadEvent.UPLOAD_ERROR, this, e);
+        }
 
     }
 }
