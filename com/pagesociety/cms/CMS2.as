@@ -24,11 +24,6 @@ package com.pagesociety.cms
     import com.pagesociety.web.module.SiteManager;
     import com.pagesociety.web.module.User;
     
-    import flash.display.GradientType;
-    import flash.display.Graphics;
-    import flash.display.SpreadMethod;
-    import flash.events.TimerEvent;
-    import flash.geom.Matrix;
     import flash.net.URLRequest;
     import flash.net.navigateToURL;
     import flash.utils.Timer;
